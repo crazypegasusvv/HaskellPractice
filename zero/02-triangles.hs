@@ -1,0 +1,6 @@
+triangles :: (Num c, Enum c, Ord c) => c -> [(c, c, c)]
+triangles side = [(a,b,c) | c <- [1..side], b <- [1..c], a <- [1..b], a + b > c]
+rightTriangles :: (Num c, Eq c, Enum c) => c -> [(c, c, c)]
+rightTriangles side = [ (a,b,c) | c <- [1..side], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2]
+rightTriangles' :: (Num c, Eq c, Enum c) => c -> c -> [(c, c, c)]
+rightTriangles' side perimeter = [ (a,b,c) | c <- [1..side], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a + b + c == perimeter]
